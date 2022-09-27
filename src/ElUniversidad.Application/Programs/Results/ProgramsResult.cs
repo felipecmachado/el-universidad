@@ -13,6 +13,6 @@
     public class ProgramResult
     {
         public string Code { get; set; }
-        public int Title { get; set; }
+        public string Title { get; set; }
     }
 }

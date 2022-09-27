@@ -2,8 +2,10 @@
 {
     public enum DegreeType : byte
     {
-        Undergraduate = 0,
-        PostGraduate = 1,
-        Masters
+        Associate = 0,
+        Bachelors,
+        Specialization,
+        Masters,
+        Doctorate
     }
 }

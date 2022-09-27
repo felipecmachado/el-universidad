@@ -3,29 +3,27 @@ using ElUniversidad.Application.Programs.Queries;
 using ElUniversidad.Application.Programs.Results;
 using ElUniversidad.Domain.Programs;
 using ElUniversidad.Domain.SeedWork;
+using ElUniversidad.Infrastructure.Data.Contexts;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
 
 namespace ElUniversidad.Application.Programs.QueryHandlers
 {
     public class GetProgramsQueryCommandHandler : IQueryHandler<GetProgramsQueryCommand, ProgramsResult>, IDisposable
     {
-        private readonly IRepositoryFactory _repositoryFactory;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
         public GetProgramsQueryCommandHandler(
-            IUnitOfWork unitOfWork,
-            IRepositoryFactory repositoryFactory,
+            IUnitOfWork<ElUniversidadContext> unitOfWork,
             IMapper mapper)
         {
-            _repositoryFactory = repositoryFactory ?? throw new ArgumentNullException(nameof(repositoryFactory));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         public async Task<ProgramsResult> Handle(GetProgramsQueryCommand request, CancellationToken cancellationToken)
         {
-            var repo = _repositoryFactory.Repository<Program>();
+            var repo = _unitOfWork.Repository<Program>();
 
             var query = repo.MultipleResultQuery();
 
@@ -53,12 +51,7 @@ namespace ElUniversidad.Application.Programs.QueryHandlers
             {
                 if (disposing)
                 {
-                    if (_repositoryFactory is IDisposable repositoryFactory)
-                    {
-                        repositoryFactory.Dispose();
-                    }
-
-                    _unitOfWork.Dispose();
+                    _unitOfWork?.Dispose();
                 }
             }
 

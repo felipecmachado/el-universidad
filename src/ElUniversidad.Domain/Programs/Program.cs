@@ -7,6 +7,10 @@ namespace ElUniversidad.Domain.Programs
     {
         public Program() { }
 
+        // References:
+        // https://en.wikipedia.org/wiki/Undergraduate_education
+        //
+
         public Guid Id { get; private set; }
         public string Code { get; private set; }
         public string Title { get; private set; }
@@ -17,6 +21,7 @@ namespace ElUniversidad.Domain.Programs
         public DateTime CreatedAt { get; private set; }
         public DateTime? ModifiedAt { get; private set; }
 
+        public ICollection<CourseStructure> CourseStructures { get; private set; } = new List<CourseStructure>();
         public ICollection<Offer> Offers { get; private set; } = new List<Offer>();
 
         public static Program New(string code, string title, string description, DegreeType degree)

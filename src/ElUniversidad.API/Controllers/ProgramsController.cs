@@ -25,7 +25,7 @@ namespace ElUniversidad.API.Controllers
         {
             var response = await _mediator.Send(new GetProgramsQueryCommand()).ConfigureAwait(false);
 
-            if (response.Programs?.Any() ?? true)
+            if (!response.Programs?.Any() ?? true)
             {
                 return NoContent();
             }
