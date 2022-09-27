@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using ElUniversidad.Application.Extensions;
 using ElUniversidad.Infrastructure.Data.Modules;
 using System.Reflection;
+using ElUniversidad.Infrastructure.Data.Seeders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ builder.Services
     .AddAutoMapperConfiguration(Assembly.Load("ElUniversidad.Application"))
     .AddDataInfrastructure(builder.Configuration)
     .AddCQRSConfiguration();
+
+ElUniversidadInitializer.ElUniversidadInitializeAndSeed(builder.Services);
 
 var app = builder.Build();
 

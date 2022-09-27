@@ -8,6 +8,8 @@ namespace ElUniversidad.Domain.Programs
 
         public Guid Id { get; private set; }
         public Guid ProgramId { get; private set; }
+        public Guid CourseStructureId { get; private set; }
+
         public DateTime AvailableAt { get; private set; }
 
         public int AdmissionsQuota { get; private set; }
@@ -16,5 +18,6 @@ namespace ElUniversidad.Domain.Programs
         public DateTime? ModifiedAt { get; private set; }
 
         public virtual Program Program { get; private set; }
+        public virtual CourseStructure CourseStructure { get; private set; }
     }
 }

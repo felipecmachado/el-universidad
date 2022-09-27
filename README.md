@@ -1,22 +1,25 @@
-# sw-engineering-unisinos-case # El Universidad
+# sw-engineering-unisinos-case 
+### El Universidad
 An comprehensive (not yet) university management web application. 
 
-### About
-This is a project created with the solely purpose of applying several topics that were presented during the [Software Engineering graduate program](https://www.unisinos.br/pos/especializacao/engenharia-de-software/hibrido/porto-alegre).
+------------
+#### About
 
-### Features
+This is a project created with the **solely purpose of applying several topics** that were presented **during the [Software Engineering graduate program](https://www.unisinos.br/pos/especializacao/engenharia-de-software/hibrido/porto-alegre).**
+
+#### Features
 
 - [x] Feat 1
 - [x] Feat 2
 - [ ] Feat 3
 
-### Architecture Decision Records
+#### Architecture Decision Records
 
-### C4 Model
+#### C4 Model
 
-### OpenAPI Specification
+#### OpenAPI Specification
 
-### Technologies and patterns used
+#### Technologies and patterns used
 
 - [x] [NET 6](https://docs.microsoft.com/pt-br/dotnet/core/whats-new/dotnet-6)
 - [x] Rich domain model using DDD (Domain Driven Design)

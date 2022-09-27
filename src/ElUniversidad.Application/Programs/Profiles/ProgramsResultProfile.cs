@@ -12,7 +12,7 @@ namespace ElUniversidad.Application.Programs.Profiles
                 .ForMember(dest => dest.Code, opts => opts.MapFrom(src => src.Code))
                 .ForMember(dest => dest.Title, opts => opts.MapFrom(src => src.Title));
 
-            CreateMap<IEnumerable<ProgramResult>, ProgramsResult>()
+            CreateMap<IList<Program>, ProgramsResult>()
                 .ForMember(dest => dest.Programs, c => c.MapFrom(src => src));
         }
     }
