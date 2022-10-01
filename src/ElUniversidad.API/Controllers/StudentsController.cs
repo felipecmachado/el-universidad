@@ -1,33 +1,33 @@
-﻿using ElUniversidad.Application.Programs.Commands;
-using ElUniversidad.Application.Programs.Queries;
-using ElUniversidad.Application.Programs.Results;
+﻿using ElUniversidad.Application.Students.Commands;
+using ElUniversidad.Application.Students.Queries;
+using ElUniversidad.Application.Students.Results;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ElUniversidad.API.Controllers
 {
     [ApiController]
-    [Route("api/programs")]
+    [Route("api/students")]
     [Produces("application/json")]
-    public class ProgramsController : ControllerBase
+    public class StudentsController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public ProgramsController(IMediator mediator)
+        public StudentsController(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [HttpGet(Name = "GetProgramsAsync")]
-        [ProducesResponseType(typeof(ProgramsResult), StatusCodes.Status200OK)]
+        [HttpGet(Name = "GetStudentsAsync")]
+        [ProducesResponseType(typeof(StudentsResult), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetProgramsAsync()
+        public async Task<IActionResult> GetStudentsAsync()
         {
-            var response = await _mediator.Send(new GetProgramsQuery()).ConfigureAwait(false);
+            var response = await _mediator.Send(new GetStudentsQuery()).ConfigureAwait(false);
 
-            if (!response.Programs?.Any() ?? true)
+            if (!response.Students?.Any() ?? true)
             {
                 return NoContent();
             }
@@ -35,12 +35,12 @@ namespace ElUniversidad.API.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{id}", Name = "GetProgramAsync")]
-        [ProducesResponseType(typeof(ProgramResult), StatusCodes.Status200OK)]
+        [HttpGet("{id}", Name = "GetStudentAsync")]
+        [ProducesResponseType(typeof(StudentResult), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetProgramAsync([FromRoute] GetProgramQuery command)
+        public async Task<IActionResult> GetStudentAsync([FromRoute] GetStudentQuery command)
         {
             if (!ModelState.IsValid)
             {
@@ -57,12 +57,12 @@ namespace ElUniversidad.API.Controllers
             return Ok(response);
         }
 
-        [HttpPost(Name = "AddNewProgramAsync")]
-        [ProducesResponseType(typeof(ProgramResult), StatusCodes.Status201Created)]
+        [HttpPost(Name = "AddNewStudentAsync")]
+        [ProducesResponseType(typeof(StudentResult), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> AddNewProgramAsync(AddNewProgramCommand command)
+        public async Task<IActionResult> AddNewStudentAsync(AddNewStudentCommand command)
         {
             if (!ModelState.IsValid)
             {
@@ -76,15 +76,15 @@ namespace ElUniversidad.API.Controllers
                 return NoContent();
             }
 
-            return Created(nameof(GetProgramAsync), response);
+            return Created(nameof(GetStudentAsync), response);
         }
 
-        [HttpPut(Name = "UpdateProgramAsync")]
-        [ProducesResponseType(typeof(ProgramResult), StatusCodes.Status200OK)]
+        [HttpPut(Name = "UpdateStudentAsync")]
+        [ProducesResponseType(typeof(StudentResult), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> UpdateProgramAsync(UpdateExistingProgramCommand command)
+        public async Task<IActionResult> UpdateStudentAsync(UpdateExistingStudentCommand command)
         {
             if (!ModelState.IsValid)
             {

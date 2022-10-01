@@ -12,6 +12,7 @@ namespace ElUniversidad.Domain.Programs
 
         public DateTime AvailableAt { get; private set; }
 
+        public decimal PricePerCredit { get; private set; }
         public int AdmissionsQuota { get; private set; }
 
         public DateTime CreatedAt { get; private set; }

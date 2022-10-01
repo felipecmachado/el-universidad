@@ -16,23 +16,9 @@ namespace ElUniversidad.Infrastructure.Data.Seeders
 
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
- 
+
             // Initial data
-            SeedData(serviceScope);
-        }
-
-        private static void SeedData(IServiceScope serviceScope)
-        {
-            var unitOfWork = serviceScope.ServiceProvider.GetService<IUnitOfWork>();
-            var repository = unitOfWork?.Repository<Program>();
-
-            if (repository is not null)
-            {
-                var programs = ProgramsSeeder.SeedPrograms();
-
-                repository.AddRange(programs);
-                unitOfWork.SaveChanges();
-            }
+            DatabaseSeeder.SeedData(serviceScope);
         }
     }
 }

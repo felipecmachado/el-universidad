@@ -1,29 +1,26 @@
-﻿using ElUniversidad.Domain.Programs;
+﻿using ElUniversidad.Domain.Students;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ElUniversidad.Infrastructure.Data.Mappings
 {
-    public class ProgramMap : IEntityTypeConfiguration<Program>
+    public class StudentMap : IEntityTypeConfiguration<Student>
     {
-        public void Configure(EntityTypeBuilder<Program> builder)
+        public void Configure(EntityTypeBuilder<Student> builder)
         {
             // Primary Key
             builder.HasKey(x => x.Id);
 
             // Properties
-            builder.Property(x => x.Code)
-                .IsRequired()
-                .HasMaxLength(4);
-
-            builder.Property(x => x.Title)
+            builder.Property(x => x.FirstName)
                 .IsRequired()
                 .HasMaxLength(50);
 
-            builder.Property(x => x.CreatedAt)
-                .IsRequired();
+            builder.Property(x => x.LastName)
+                .IsRequired()
+                .HasMaxLength(50);
 
-            builder.Property(x => x.Degree)
+            builder.Property(x => x.BirthDate)
                 .IsRequired();
 
             builder.ToTable("Programs");

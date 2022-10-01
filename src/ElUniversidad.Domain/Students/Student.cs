@@ -1,9 +1,4 @@
 ﻿using ElUniversidad.Domain.SeedWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElUniversidad.Domain.Students
 {
@@ -18,5 +13,17 @@ namespace ElUniversidad.Domain.Students
 
         public DateTime CreatedAt { get; private set; }
         public DateTime? ModifiedAt { get; private set; }
+
+        public static Student New(string firstName, string lastName, DateOnly birthDate)
+        {
+            return new Student()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = firstName,
+                LastName = lastName,
+                BirthDate = birthDate,
+                CreatedAt = DateTime.UtcNow
+            };
+        }
     }
 }

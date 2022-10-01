@@ -4,29 +4,26 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ElUniversidad.Infrastructure.Data.Mappings
 {
-    public class ProgramMap : IEntityTypeConfiguration<Program>
+    public class CourseStructureMap : IEntityTypeConfiguration<CourseStructure>
     {
-        public void Configure(EntityTypeBuilder<Program> builder)
+        public void Configure(EntityTypeBuilder<CourseStructure> builder)
         {
             // Primary Key
             builder.HasKey(x => x.Id);
 
             // Properties
-            builder.Property(x => x.Code)
-                .IsRequired()
-                .HasMaxLength(4);
-
             builder.Property(x => x.Title)
-                .IsRequired()
-                .HasMaxLength(50);
+                .IsRequired();
 
             builder.Property(x => x.CreatedAt)
                 .IsRequired();
 
-            builder.Property(x => x.Degree)
-                .IsRequired();
+            builder.HasOne<Program>()
+                .WithMany()
+                .IsRequired(false)
+                .HasForeignKey(i => i.ProgramId);
 
-            builder.ToTable("Programs");
+            builder.ToTable("CourseStructures");
         }
     }
 }

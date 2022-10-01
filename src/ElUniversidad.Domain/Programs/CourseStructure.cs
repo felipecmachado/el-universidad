@@ -15,6 +15,17 @@ namespace ElUniversidad.Domain.Programs
         public DateTime CreatedAt { get; private set; }
         public DateTime? ModifiedAt { get; private set; }
 
-        public virtual ICollection<Course> Courses { get; private set; }
+        public virtual IEnumerable<Course> Courses { get; private set; }
+
+        public static CourseStructure New(Guid programId, string title, IEnumerable<Course> assignedCourses)
+        {
+            return new CourseStructure()
+            {
+                Id = Guid.NewGuid(),
+                Title = title,
+                ProgramId = programId,
+                Courses = assignedCourses                
+            };
+        }
     }
 }

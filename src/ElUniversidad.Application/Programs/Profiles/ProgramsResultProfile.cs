@@ -9,6 +9,7 @@ namespace ElUniversidad.Application.Programs.Profiles
         public ProgramsResultProfile()
         {
             CreateMap<Program, ProgramResult>()
+                .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Code, opts => opts.MapFrom(src => src.Code))
                 .ForMember(dest => dest.Title, opts => opts.MapFrom(src => src.Title));
 
