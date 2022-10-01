@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ElUniversidad.Infrastructure.Data.Contexts;
+using EntityFrameworkCore.Repository.Extensions;
+using ElUniversidad.Infrastructure.Data.Repositories;
+using ElUniversidad.Infrastructure.Data.Repositories.Interfaces;
 
 namespace ElUniversidad.Infrastructure.Data.Modules
 {
@@ -34,7 +37,14 @@ namespace ElUniversidad.Infrastructure.Data.Modules
             services.AddUnitOfWork();
             services.AddUnitOfWork<ElUniversidadContext>();
 
+            RegistryCustomRepositories(services);
+
             return services;
+        }
+
+        private static void RegistryCustomRepositories(IServiceCollection services)
+        {
+            services.AddCustomRepository<IProgramRepository, ProgramRepository>();
         }
     }
 }

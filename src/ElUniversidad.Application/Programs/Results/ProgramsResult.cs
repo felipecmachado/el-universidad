@@ -12,6 +12,7 @@
 
     public class ProgramResult
     {
+        public Guid Id { get; set; }
         public string Code { get; set; }
         public string Title { get; set; }
     }

@@ -8,12 +8,12 @@ using EntityFrameworkCore.UnitOfWork.Interfaces;
 
 namespace ElUniversidad.Application.Programs.QueryHandlers
 {
-    public class GetProgramsQueryCommandHandler : IQueryHandler<GetProgramsQueryCommand, ProgramsResult>, IDisposable
+    public class GetProgramQueryHandler : IQueryHandler<GetProgramQuery, ProgramResult>, IDisposable
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public GetProgramsQueryCommandHandler(
+        public GetProgramQueryHandler(
             IUnitOfWork<ElUniversidadContext> unitOfWork,
             IMapper mapper)
         {
@@ -21,18 +21,19 @@ namespace ElUniversidad.Application.Programs.QueryHandlers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task<ProgramsResult> Handle(GetProgramsQueryCommand request, CancellationToken cancellationToken)
+        public async Task<ProgramResult> Handle(GetProgramQuery request, CancellationToken cancellationToken)
         {
             var repo = _unitOfWork.Repository<Program>();
 
-            var query = repo.MultipleResultQuery();
+            var query = repo.SingleResultQuery()
+                .AndFilter(x => x.Id == request.Id);
 
-            var programs = await repo.SearchAsync(query, cancellationToken)
+            var program = await repo.FirstOrDefaultAsync(query, cancellationToken)
                 .ConfigureAwait(continueOnCapturedContext: false);
 
-            var programsResult = _mapper.Map<ProgramsResult>(programs);
+            var result = _mapper.Map<ProgramResult>(program);
 
-            return programsResult;
+            return result;
         }
 
         #region IDisposable Members

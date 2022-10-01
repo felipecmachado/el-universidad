@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElUniversidad.Domain.Admissions
+namespace ElUniversidad.Domain.Students
 {
     internal class Enrollment
     {
