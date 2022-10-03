@@ -1,9 +1,7 @@
 using ElUniversidad.Application.Extensions;
 using ElUniversidad.Infrastructure.Data.Modules;
 using ElUniversidad.Infrastructure.Data.Seeders;
-using System.Reflection;
-
-var builder = WebApplication.CreateBuilder(args);
+using System.Reflection;var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -38,5 +36,13 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(policy =>
+{
+    policy
+        .WithOrigins("https://localhost:44423", "http://localhost:44423")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+});
 
 app.Run();

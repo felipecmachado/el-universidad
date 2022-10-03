@@ -10,7 +10,8 @@ namespace ElUniversidad.Domain.Programs
         public Guid ProgramId { get; private set; }
         public Guid CourseStructureId { get; private set; }
 
-        public DateTime AvailableAt { get; private set; }
+        public DateOnly AdmissionAvailableUntil { get; private set; }
+        public DateOnly StartingOn { get; private set; }
 
         public decimal PricePerCredit { get; private set; }
         public int AdmissionsQuota { get; private set; }

@@ -46,7 +46,85 @@ namespace ElUniversidad.Infrastructure.Data.Seeders
 
             #region Medicina
             {
-                var program = Program.New("MEDI", "Medicina", "Graduação em Medicina", DegreeType.Bachelors);
+                var program = Program.New("MEDI", "Medicina", "Aqui, você realiza atividades práticas em hospitais e Unidades Básicas de Saúde (UBS) desde os primeiros semestres. Por quê? A resposta é simples: porque o paciente é o elemento mais importante no seu aprendizado. \r\n\r\nO propósito é que você se torne, a partir da relação com as pessoas e da interação com casos reais, um médico(a) com perfil humanista, ou seja, um profissional sensível e capaz de auxiliar cada paciente da melhor forma, de forma empática.  ​​\r\n\r\nE não faltam locais de prática, professores qualificados, laboratórios de última geração e projetos promovidos pelo curso para que você seja protagonista do seu caminho na graduação em Medicina da Unisinos", DegreeType.Bachelors);
+
+                dbContext.Set<Program>()
+                    .Add(program);
+
+                dbContext.SaveChanges();
+
+                var courses = new List<Course>()
+                {
+                    Course.New("Anatomia Humana", string.Empty, string.Empty, 8, 6.0f),
+                    Course.New("Ciências Sociais Aplicadas à Saúde", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Bioquímica", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Fisiologia Médica e Biofísica", string.Empty, string.Empty, 8, 6.0f),
+                    Course.New("Genética", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Linguagem e Interação na Saúde", string.Empty, string.Empty, 8, 6.0f)
+                };
+
+                dbContext.Set<Course>()
+                    .AddRange(courses);
+
+                dbContext.SaveChanges();
+            }
+            #endregion
+
+            #region Enfermagem
+            {
+                var program = Program.New("ENFE", "Enfermagem", "Graduação em Enfermagem", DegreeType.Bachelors);
+
+                dbContext.Set<Program>()
+                    .Add(program);
+
+                dbContext.SaveChanges();
+
+                var courses = new List<Course>()
+                {
+                    Course.New("Anatomia Humana", string.Empty, string.Empty, 8, 6.0f),
+                    Course.New("Ciências Sociais Aplicadas à Saúde", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Bioquímica", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Fisiologia Médica e Biofísica", string.Empty, string.Empty, 8, 6.0f),
+                    Course.New("Genética", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Linguagem e Interação na Saúde", string.Empty, string.Empty, 8, 6.0f)
+                };
+
+                dbContext.Set<Course>()
+                    .AddRange(courses);
+
+                dbContext.SaveChanges();
+            }
+            #endregion
+
+            #region Medicina
+            {
+                var program = Program.New("BIOM", "Biomedicina", "Graduação em Biomedicina", DegreeType.Bachelors);
+
+                dbContext.Set<Program>()
+                    .Add(program);
+
+                dbContext.SaveChanges();
+
+                var courses = new List<Course>()
+                {
+                    Course.New("Anatomia Humana", string.Empty, string.Empty, 8, 6.0f),
+                    Course.New("Ciências Sociais Aplicadas à Saúde", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Bioquímica", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Fisiologia Médica e Biofísica", string.Empty, string.Empty, 8, 6.0f),
+                    Course.New("Genética", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Linguagem e Interação na Saúde", string.Empty, string.Empty, 8, 6.0f)
+                };
+
+                dbContext.Set<Course>()
+                    .AddRange(courses);
+
+                dbContext.SaveChanges();
+            }
+            #endregion
+
+            #region Medicina
+            {
+                var program = Program.New("TENF", "Técnico em Enfermagem", "Gradução Técnica em Enfermagem", DegreeType.Associate);
 
                 dbContext.Set<Program>()
                     .Add(program);

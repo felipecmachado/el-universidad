@@ -5,6 +5,7 @@ using ElUniversidad.Domain.Programs;
 using ElUniversidad.Domain.SeedWork;
 using ElUniversidad.Infrastructure.Data.Contexts;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace ElUniversidad.Application.Programs.QueryHandlers
 {
@@ -25,7 +26,8 @@ namespace ElUniversidad.Application.Programs.QueryHandlers
         {
             var repo = _unitOfWork.Repository<Program>();
 
-            var query = repo.MultipleResultQuery();
+            var query = repo.MultipleResultQuery()
+                .Include(x => x.Include(y => y.Offers));
 
             var programs = await repo.SearchAsync(query, cancellationToken)
                 .ConfigureAwait(continueOnCapturedContext: false);

@@ -2,6 +2,7 @@
 using ElUniversidad.Application.Programs.Commands;
 using ElUniversidad.Application.Programs.Results;
 using ElUniversidad.Domain.Programs;
+using ElUniversidad.Domain.Programs.Enums;
 using ElUniversidad.Domain.SeedWork;
 using ElUniversidad.Infrastructure.Extensions;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
@@ -34,7 +35,7 @@ namespace ElUniversidad.Application.Programs.CommandHandlers
             var repo = _unitOfWork.Repository<Program>();
 
             var program = Program
-                .New(request.Code, request.Title, request.Description, request.Degree);
+                .New(request.Code, request.Title, request.Description, Enum.Parse<DegreeType>(request.Degree));
 
             repo.Add(program);
 

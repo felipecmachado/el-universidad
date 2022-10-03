@@ -20,6 +20,9 @@ namespace ElUniversidad.Infrastructure.Data.Mappings
                 .IsRequired()
                 .HasMaxLength(50);
 
+            builder.Property(x => x.Description)
+                .HasMaxLength(2000);
+
             builder.Property(x => x.CreatedAt)
                 .IsRequired();
 

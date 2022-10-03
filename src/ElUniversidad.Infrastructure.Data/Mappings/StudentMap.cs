@@ -23,7 +23,7 @@ namespace ElUniversidad.Infrastructure.Data.Mappings
             builder.Property(x => x.BirthDate)
                 .IsRequired();
 
-            builder.ToTable("Programs");
+            builder.ToTable("Students");
         }
     }
 }

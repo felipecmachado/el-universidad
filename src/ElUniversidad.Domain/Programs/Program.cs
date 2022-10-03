@@ -13,7 +13,6 @@ namespace ElUniversidad.Domain.Programs
         public string Description { get; private set; }
         public string AdditionalInformation { get; private set; }
         public DegreeType Degree { get; private set; }
-        public DateOnly AvailableUntil { get; private set; }
 
         public DateTime CreatedAt { get; private set; }
         public DateTime? ModifiedAt { get; private set; }
@@ -30,7 +29,6 @@ namespace ElUniversidad.Domain.Programs
                 Title = title,
                 Description = description,
                 Degree = degree,
-                AvailableUntil = DateOnly.FromDateTime(DateTime.UtcNow.AddYears(1)),
                 CreatedAt = DateTime.UtcNow
             };
 
