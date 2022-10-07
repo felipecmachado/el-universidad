@@ -1,4 +1,5 @@
 ﻿using ElUniversidad.Domain.Courses;
+using ElUniversidad.Domain.Programs;
 using EntityFrameworkCore.Repository.Interfaces;
 
 namespace ElUniversidad.Infrastructure.Data.Repositories.Interfaces

@@ -2,6 +2,7 @@
 using ElUniversidad.Application.Courses.Commands;
 using ElUniversidad.Application.Courses.Results;
 using ElUniversidad.Domain.Courses;
+using ElUniversidad.Domain.Programs;
 using ElUniversidad.Domain.SeedWork;
 using ElUniversidad.Infrastructure.Extensions;
 using EntityFrameworkCore.UnitOfWork.Interfaces;

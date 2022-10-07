@@ -1,0 +1,66 @@
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+  <div class="breadcrumb-title pe-3">Programs</div>
+  <div class="ps-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0 p-0">
+        <li class="breadcrumb-item">
+          <a href="#" (click)="$event.preventDefault()"><i class="bx bx-home-alt"></i></a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Add New Program</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!--end breadcrumb-->
+
+<form [formGroup]="newProgramForm" (ngSubmit)="submitForm(newProgramForm.value)">
+  <div class="card">
+    <div class="card-body p-4">
+      <h5 class="card-title">Add New Program</h5>
+      <hr />
+      <div class="form-body mt-4">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="border border-3 p-4 rounded">
+
+              <div class="form-group col-lg-4 mb-3">
+                <label for="inputProgramCode" class="form-label">Code</label>
+                <input class="form-control form-input w-100 u-maxwidth-unset" type="text" placeholder="Code" formControlName="code"/>
+              </div>
+
+              <div class="form-group col-lg-4 mb-3">
+                <label for="inputProgramTitle" class="form-label">Title</label>
+                <input class="form-control form-input w-100 u-maxwidth-unset" type="text" placeholder="Title" formControlName="title">
+              </div>
+
+              <div class="form-group col-lg-4 mb-3">
+                <label for="inputProgramDegree" class="form-label">Degree</label>
+                <select class="form-select" id="inputProgramDegree" formControlName="degree">
+                  <option></option>
+                  <option value="0">Associate</option>
+                  <option value="1">Bachelors</option>
+                  <option value="2">Specialization</option>
+                  <option value="3">Masters</option>
+                  <option value="4">Doctorate</option>
+                </select>
+              </div>
+
+              <div class="form-group col-lg-8 mb-3">
+                <label for="inputProgramDescription" class="form-label">Description</label>
+                <textarea class="form-control" id="inputProgramDescription" rows="3" formControlName="description"></textarea>
+              </div>
+
+              <hr />
+              <div class="col-4">
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary" [disabled]="!newProgramForm.valid">Add Program</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--end row-->
+      </div>
+    </div>
+  </div>
+  </form>

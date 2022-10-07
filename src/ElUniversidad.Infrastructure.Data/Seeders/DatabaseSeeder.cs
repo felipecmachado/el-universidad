@@ -3,6 +3,7 @@ using ElUniversidad.Domain.Programs;
 using ElUniversidad.Domain.Programs.Enums;
 using ElUniversidad.Domain.Students;
 using ElUniversidad.Infrastructure.Data.Contexts;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ElUniversidad.Infrastructure.Data.Seeders
@@ -60,11 +61,31 @@ namespace ElUniversidad.Infrastructure.Data.Seeders
                     Course.New("Bioquímica", string.Empty, string.Empty, 4, 6.0f),
                     Course.New("Fisiologia Médica e Biofísica", string.Empty, string.Empty, 8, 6.0f),
                     Course.New("Genética", string.Empty, string.Empty, 4, 6.0f),
-                    Course.New("Linguagem e Interação na Saúde", string.Empty, string.Empty, 8, 6.0f)
+                    Course.New("Linguagem e Interação na Saúde", string.Empty, string.Empty, 8, 6.0f),
+                    Course.New("Imunologia", string.Empty, string.Empty, 8, 6.0f),
+                    Course.New("Microbiologia", string.Empty, string.Empty, 8, 6.0f),
+                    Course.New("Fundamentos de Patologia", string.Empty, string.Empty, 8, 6.0f),
+                    Course.New("Farmacologia Médica", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Tecnologia da Informação Aplicada à Medicina", string.Empty, string.Empty, 4, 6.0f),
+                    Course.New("Patologia Clínica", string.Empty, string.Empty, 8, 6.0f)                    
                 };
 
                 dbContext.Set<Course>()
                     .AddRange(courses);
+
+                dbContext.SaveChanges();
+
+                var structure = ProgramStructure.New(program.Id, "MEDI - Estrutura Versão 2022");
+
+                dbContext.Set<ProgramStructure>().Add(structure);
+
+                dbContext.SaveChanges();
+
+                dbContext.Set<AssignedCourse>().AddRange(courses.Select(x => AssignedCourse.New(structure.Id, x.Id)));
+
+                var offer = Offer.New(program.Id, structure.Id, new DateOnly(2022, 11, 01), new DateOnly(2023, 02, 22), 795.50m, 50);
+
+                dbContext.Set<Offer>().Add(offer);
 
                 dbContext.SaveChanges();
             }
@@ -96,7 +117,7 @@ namespace ElUniversidad.Infrastructure.Data.Seeders
             }
             #endregion
 
-            #region Medicina
+            #region Biomedicina
             {
                 var program = Program.New("BIOM", "Biomedicina", "Graduação em Biomedicina", DegreeType.Bachelors);
 
@@ -122,27 +143,12 @@ namespace ElUniversidad.Infrastructure.Data.Seeders
             }
             #endregion
 
-            #region Medicina
+            #region Técnico em Enfermagem
             {
                 var program = Program.New("TENF", "Técnico em Enfermagem", "Gradução Técnica em Enfermagem", DegreeType.Associate);
 
                 dbContext.Set<Program>()
                     .Add(program);
-
-                dbContext.SaveChanges();
-
-                var courses = new List<Course>()
-                {
-                    Course.New("Anatomia Humana", string.Empty, string.Empty, 8, 6.0f),
-                    Course.New("Ciências Sociais Aplicadas à Saúde", string.Empty, string.Empty, 4, 6.0f),
-                    Course.New("Bioquímica", string.Empty, string.Empty, 4, 6.0f),
-                    Course.New("Fisiologia Médica e Biofísica", string.Empty, string.Empty, 8, 6.0f),
-                    Course.New("Genética", string.Empty, string.Empty, 4, 6.0f),
-                    Course.New("Linguagem e Interação na Saúde", string.Empty, string.Empty, 8, 6.0f)
-                };
-
-                dbContext.Set<Course>()
-                    .AddRange(courses);
 
                 dbContext.SaveChanges();
             }

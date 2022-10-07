@@ -17,8 +17,8 @@ namespace ElUniversidad.Domain.Programs
         public DateTime CreatedAt { get; private set; }
         public DateTime? ModifiedAt { get; private set; }
 
-        public ICollection<CourseStructure> CourseStructures { get; private set; } = new List<CourseStructure>();
-        public ICollection<Offer> Offers { get; private set; } = new List<Offer>();
+        public ICollection<ProgramStructure> ProgramStructures { get; set; } = new List<ProgramStructure>();
+        public ICollection<Offer> Offers { get; set; } = new List<Offer>();
 
         public static Program New(string code, string title, string description, DegreeType degree)
         {

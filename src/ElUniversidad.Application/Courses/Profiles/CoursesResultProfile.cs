@@ -12,6 +12,7 @@ namespace ElUniversidad.Application.Courses.Profiles
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Title, opts => opts.MapFrom(src => src.Title))
                 .ForMember(dest => dest.Description, opts => opts.MapFrom(src => src.Description))
+                .ForMember(dest => dest.AdditionalInformation, opts => opts.MapFrom(src => src.AdditionalInformation))
                 .ForMember(dest => dest.MinimumGrade, opts => opts.MapFrom(src => src.MinimumGrade))
                 .ForMember(dest => dest.Hours, opts => opts.MapFrom(src => src.Hours));
 

@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using ElUniversidad.Application.Programs.Commands;
 using ElUniversidad.Application.Programs.Results;
+using ElUniversidad.Domain.Programs;
 using ElUniversidad.Domain.SeedWork;
 using ElUniversidad.Infrastructure.Data.Repositories.Interfaces;
 using ElUniversidad.Infrastructure.Extensions;
+using EntityFrameworkCore.Repository.Interfaces;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -35,7 +37,14 @@ namespace ElUniversidad.Application.Programs.CommandHandlers
 
             var program = await repo.GetExistingProgramAsync(request.Id, cancellationToken).ConfigureAwait(false);
 
+            if (program is null)
+            {
+                throw new ArgumentNullException(nameof(program));
+            }
+
             program.UpdateTitleAndDescription(request.Title, request.Description);
+
+            (repo as IRepository<Program>).Update(program);
 
             await _unitOfWork.SaveChangesAsync(cancellationToken: cancellationToken).ConfigureAwait(continueOnCapturedContext: false);
 

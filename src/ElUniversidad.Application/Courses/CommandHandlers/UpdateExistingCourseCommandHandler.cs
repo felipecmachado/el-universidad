@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using ElUniversidad.Application.Courses.Commands;
 using ElUniversidad.Application.Courses.Results;
+using ElUniversidad.Domain.Courses;
 using ElUniversidad.Domain.SeedWork;
 using ElUniversidad.Infrastructure.Data.Repositories.Interfaces;
 using ElUniversidad.Infrastructure.Extensions;
+using EntityFrameworkCore.Repository.Interfaces;
 using EntityFrameworkCore.UnitOfWork.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -36,6 +38,8 @@ namespace ElUniversidad.Application.Courses.CommandHandlers
             var course = await repo.GetExistingCourseAsync(request.Id, cancellationToken).ConfigureAwait(false);
 
             course.Update(request.Title, request.Description, request.Credits, request.MinimumGrade);
+
+            (repo as IRepository<Course>).Update(course);
 
             await _unitOfWork.SaveChangesAsync(cancellationToken: cancellationToken).ConfigureAwait(continueOnCapturedContext: false);
 

@@ -1,11 +1,19 @@
 using ElUniversidad.Application.Extensions;
 using ElUniversidad.Infrastructure.Data.Modules;
 using ElUniversidad.Infrastructure.Data.Seeders;
-using System.Reflection;var builder = WebApplication.CreateBuilder(args);
+using ElUniversidad.Infrastructure.Serialization;
+using System.Reflection;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(options => 
+    {
+        options.JsonSerializerOptions.Converters.Add(new DateOnlyConverter());
+    });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -40,7 +48,7 @@ app.MapControllers();
 app.UseCors(policy =>
 {
     policy
-        .WithOrigins("https://localhost:44423", "http://localhost:44423")
+        .WithOrigins("https://localhost:4200", "http://localhost:4200")
         .AllowAnyHeader()
         .AllowAnyMethod();
 });
