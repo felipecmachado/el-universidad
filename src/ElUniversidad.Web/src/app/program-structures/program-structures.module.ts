@@ -1,14 +1,17 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProgramsService } from '../programs/services/programs.service';
-import { ProgramStructuresRoutingModule } from './program-structures-routing.module';
+import { ProgramStructuresDetailsComponent } from './program-structures-details/program-structures-details.component';
 import { ProgramStructuresListComponent } from './program-structures-list/program-structures-list.component';
+import { ProgramStructuresRoutingModule } from './program-structures-routing.module';
+import { ProgramStructureService } from './services/program-structure.service';
 
 @NgModule({
   declarations: [
-    ProgramStructuresListComponent
+    ProgramStructuresListComponent,
+    ProgramStructuresDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -17,6 +20,7 @@ import { ProgramStructuresListComponent } from './program-structures-list/progra
     ReactiveFormsModule
   ],
   providers: [
+    ProgramStructureService,
     ProgramsService
   ],
 })

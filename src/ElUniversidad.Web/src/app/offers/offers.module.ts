@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProgramsService } from '../programs/services/programs.service';
 import { OffersRoutingModule } from './offers-routing.module';
 import { ProgramOffersComponent } from './program-offers/program-offers.component';
+import { OffersService } from './services/offers.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { ProgramOffersComponent } from './program-offers/program-offers.componen
     ReactiveFormsModule
   ],
   providers: [
-    ProgramsService
+    OffersService
   ],
 })
 export class OffersModule { }

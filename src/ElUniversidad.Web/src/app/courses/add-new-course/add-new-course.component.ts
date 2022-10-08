@@ -15,6 +15,7 @@ export class AddNewCourseComponent implements OnInit {
 
   newCourseForm: FormGroup;  // new program form
   course: Course;
+  showMsg: boolean = false;
 
   constructor(private coursesService: CoursesService, fb: FormBuilder, private router: Router) {
     this.newCourseForm = fb.group({
@@ -38,5 +39,6 @@ export class AddNewCourseComponent implements OnInit {
     this.course.minimumGrade = this.newCourseForm.controls['minimumGrade'].value;
 
     this.coursesService.createCourse(this.course);
+    this.showMsg = true;
   }
 }

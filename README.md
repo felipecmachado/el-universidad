@@ -9,13 +9,13 @@ This is a project created with the **solely purpose of applying several topics**
 
 #### Features
 
-- [x] Feat 1
-- [x] Feat 2
-- [ ] Feat 3
-
-#### Architecture Decision Records
-
-#### C4 Model
+- [x] Create and edit Programs
+- [x] Create and edit Courses
+- [x] View Program Offers
+- [x] View Program Structures
+- [ ] Create and edit Students
+- [ ] Students can register to offers
+- [ ] Authenticate using Google Firebase
 
 #### OpenAPI Specification
 
@@ -32,6 +32,7 @@ This is a project created with the **solely purpose of applying several topics**
 - [x] AutoMapper as object-object mapper
 - [x] MySql
 - [x] Docker (including docker-compose)
+- [x] Single page application using Node and Angular 14
 - [ ] Strongly-typed validation rules using FluentValidation
 - [ ] Redis as Cache provider
 - [ ] Messaging using Apache Kafka
@@ -62,8 +63,13 @@ cd ..\ElUniversidad.API
 dotnet build
 dotnet run
 ```
-Navigate to the https://localhost:7227/swagger or http://localhost:5227  
-It is suggested to wait a few minutes, so real data can be collected.
+After that you will be able to navigate to the https://localhost:7227/swagger or http://localhost:5227/swagger
+Last, enter the Web directory and start the project by running ng serve
+```powershell
+cd ..\ElUniversidad.Web
+ng serve
+```
+The web application should open or you can navigate to http://http://localhost:4200/
 
 ### Read further
 

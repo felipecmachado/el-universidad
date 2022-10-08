@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AlertService } from 'src/app/shared/services/alert.service';
-import { Program } from '../../programs/models/program.model';
-import { ProgramsService } from '../../programs/services/programs.service';
+import { ProgramStructure } from '../models/program-structure.model';
+import { ProgramStructureService } from '../services/program-structure.service';
+
 
 @Component({
-  selector: 'app-program-structures-list.component',
-  templateUrl: './program-structures-list.component.component.html',
-  styleUrls: ['./program-structures-list.component.component.scss']
+  selector: 'app-program-structures-list',
+  templateUrl: './program-structures-list.component.html',
+  styleUrls: ['./program-structures-list.component.scss']
 })
 export class ProgramStructuresListComponent implements OnInit {
 
   constructor(
-    private programsService: ProgramsService) { }
+    private programStructureService: ProgramStructureService) { }
 
-  public programs: Program[] = new Array<Program>();
+  public programStructures: ProgramStructure[] = new Array<ProgramStructure>();
 
   ngOnInit(): void {
-    this.getPrograms();
+    this.getProgramStructures();
   }
 
-  getPrograms() {
-    this.programsService.getPrograms().subscribe((data) => {
-      this.programs = data.programs as Program[];
+  getProgramStructures() {
+    this.programStructureService.getProgramStructures().subscribe((data) => {
+      this.programStructures = data.programStructures as ProgramStructure[];
     });
   }
 }

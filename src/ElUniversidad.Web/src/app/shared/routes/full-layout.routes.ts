@@ -20,8 +20,8 @@ export const Full_ROUTES: Routes = [
     loadChildren: () => import('../../program-structures/program-structures.module').then(m => m.ProgramStructuresModule)
   },
   {
-    path: 'programs',
-    loadChildren: () => import('../../programs/programs.module').then(m => m.ProgramsModule)
+    path: 'courses',
+    loadChildren: () => import('../../courses/courses.module').then(m => m.CoursesModule)
   },
   {
     path: 'user-profile',

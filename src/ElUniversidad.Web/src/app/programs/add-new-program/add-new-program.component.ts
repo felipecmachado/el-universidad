@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { ProgramsService } from '../services/programs.service';
 import { Program } from '../models/program.model';
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,28 +15,55 @@ import { Router } from '@angular/router';
 })
 export class AddNewProgramComponent implements OnInit {
 
-  newProgramForm: FormGroup;  // new program form
-  program: Program;
+  degrees = ['Associate', 'Bachelors', 'Specialization', 'Masters', 'Doctorate'];
+
+  newProgram = {
+    code: '',
+    title: '',
+    degree: this.degrees[0],
+    description: ''
+  };
+
+  newProgramForm: FormGroup;
+  showMsg: boolean = false;
 
   constructor(private programsService: ProgramsService, fb: FormBuilder, private router: Router) {
-    this.newProgramForm = fb.group({
-      'code': '',
-      'title': '',
-      'degree': '',
-      'description': ''
+    this.newProgramForm = new FormGroup({
+      code: new FormControl(this.newProgram.code, [
+        Validators.required,
+        Validators.minLength(4)
+      ]),
+      title: new FormControl(this.newProgram.title, [
+        Validators.required,
+        Validators.minLength(10)
+      ]),
+      description: new FormControl(this.newProgram.description, [
+        Validators.required,
+        Validators.minLength(30)
+      ]),
+      degree: new FormControl(this.newProgram.degree, Validators.required)
     });
-    this.program = new Program();
   }
 
   ngOnInit(): void {
   }
 
+  get code() { return this.newProgramForm.get('code'); }
+  get title() { return this.newProgramForm.get('title'); }
+  get degree() { return this.newProgramForm.get('degree'); }
+  get description() { return this.newProgramForm.get('description'); }
+  
   submitForm(value: any) {
-    this.program.code = this.newProgramForm.controls['code'].value;
-    this.program.title = this.newProgramForm.controls['title'].value;
-    this.program.description = this.newProgramForm.controls['description'].value;
-    this.program.degree = this.newProgramForm.controls['degree'].value;
 
-    this.programsService.createProgram(this.program);
+    var program = new Program();
+    
+    program.code = this.newProgramForm.controls['code'].value;
+    program.title = this.newProgramForm.controls['title'].value;
+    program.description = this.newProgramForm.controls['description'].value;
+    program.degree = this.newProgramForm.controls['degree'].value;
+
+    this.programsService.createProgram(program);
+
+    this.showMsg = true;
   }
 }

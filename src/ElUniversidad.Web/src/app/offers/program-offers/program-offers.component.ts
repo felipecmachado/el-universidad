@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AlertService } from 'src/app/shared/services/alert.service';
-import { ProgramsService } from '../../programs/services/programs.service';
-import { Program } from '../../programs/models/program.model';
+import { Offer } from '../models/offer.model';
+import { OffersService } from '../services/offers.service';
 
 @Component({
   selector: 'app-program-offers',
@@ -12,17 +10,17 @@ import { Program } from '../../programs/models/program.model';
 export class ProgramOffersComponent implements OnInit {
 
   constructor(
-    private programsService: ProgramsService) { }
+    private offersService: OffersService) { }
 
-  public programs: Program[] = new Array<Program>();
+  public offers: Offer[] = new Array<Offer>();
 
   ngOnInit(): void {
-    this.getPrograms();
+    this.getOffers();
   }
 
-  getPrograms() {
-    this.programsService.getPrograms().subscribe((data) => {
-      this.programs = data.programs as Program[];
+  getOffers() {
+    this.offersService.getOffers().subscribe((data) => {
+      this.offers = data.offers as Offer[];
     });
   }
 }

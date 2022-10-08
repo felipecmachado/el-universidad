@@ -14,7 +14,7 @@
 </div>
 <!--end breadcrumb-->
 
-<form [formGroup]="newProgramForm" (ngSubmit)="submitForm(newProgramForm.value)">
+<form [formGroup]="newProgramForm" #formDir="ngForm" (ngSubmit)="submitForm(newProgramForm.value)">
   <div class="card">
     <div class="card-body p-4">
       <h5 class="card-title">Add New Program</h5>
@@ -26,29 +26,73 @@
 
               <div class="form-group col-lg-4 mb-3">
                 <label for="inputProgramCode" class="form-label">Code</label>
-                <input class="form-control form-input w-100 u-maxwidth-unset" type="text" placeholder="Code" formControlName="code"/>
+                <input class="form-control form-input w-100 u-maxwidth-unset"
+                       type="text"
+                       id="code"
+                       required
+                       placeholder="Code"
+                       formControlName="code" />
+              </div>
+
+              <div *ngIf="code?.invalid && (code?.dirty || code?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="code?.errors?.['required']">
+                  Code is required.
+                </div>
+                <div *ngIf="code?.errors?.['minlength']">
+                  Code must be at least 4 characters long.
+                </div>
               </div>
 
               <div class="form-group col-lg-4 mb-3">
                 <label for="inputProgramTitle" class="form-label">Title</label>
-                <input class="form-control form-input w-100 u-maxwidth-unset" type="text" placeholder="Title" formControlName="title">
+                <input class="form-control form-input w-100 u-maxwidth-unset"
+                       type="text"
+                       id="title"
+                       placeholder="Title"
+                       required
+                       formControlName="title" />
+              </div>
+
+              <div *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="title?.errors?.['required']">
+                  Title is required.
+                </div>
+                <div *ngIf="title?.errors?.['minlength']">
+                  Title must be at least 15 characters long.
+                </div>
               </div>
 
               <div class="form-group col-lg-4 mb-3">
                 <label for="inputProgramDegree" class="form-label">Degree</label>
-                <select class="form-select" id="inputProgramDegree" formControlName="degree">
-                  <option></option>
-                  <option value="0">Associate</option>
-                  <option value="1">Bachelors</option>
-                  <option value="2">Specialization</option>
-                  <option value="3">Masters</option>
-                  <option value="4">Doctorate</option>
+                <select class="form-select" id="power" formControlName="degree" required>
+                  <option *ngFor="let d of degrees" [value]="d">{{d}}</option>
                 </select>
+
+
+                <div *ngIf="degree?.invalid && degree?.touched" class="alert alert-danger">
+                  <div *ngIf="degree?.errors?.['required']">Degree is required.</div>
+                </div>
               </div>
 
-              <div class="form-group col-lg-8 mb-3">
-                <label for="inputProgramDescription" class="form-label">Description</label>
-                <textarea class="form-control" id="inputProgramDescription" rows="3" formControlName="description"></textarea>
+              <div class="form-group col-lg-6 mb-3">
+                <label for="description" class="form-label">Code</label>
+                <textarea class="form-control form-input w-100 u-maxwidth-unset"
+                          id="description"
+                          required
+                          rows="3"
+                          formControlName="description"></textarea>
+              </div>
+
+              <div *ngIf="description?.invalid && (description?.dirty || description?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="description?.errors?.['required']">
+                  Description is required.
+                </div>
+                <div *ngIf="description?.errors?.['minlength']">
+                  Description must be at least 30 characters long.
+                </div>
               </div>
 
               <hr />
@@ -57,10 +101,25 @@
                   <button type="submit" class="btn btn-primary" [disabled]="!newProgramForm.valid">Add Program</button>
                 </div>
               </div>
+
+              <br />
+              <div class="alert border-0 border-start border-5 border-success alert-dismissible fade show py-2" *ngIf="showMsg">
+                <div class="d-flex align-items-center">
+                  <div class="font-35 text-success">
+                    <i class='bx bxs-check-circle'></i>
+                  </div>
+                  <div class="ms-3">
+                    <h6 class="mb-0 text-success">Success</h6>
+                    <div>Your program has been succesfully created!</div>
+                  </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+
             </div>
           </div>
         </div><!--end row-->
       </div>
     </div>
   </div>
-  </form>
+</form>
