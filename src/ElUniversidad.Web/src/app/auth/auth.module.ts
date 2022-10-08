@@ -17,8 +17,7 @@ import { AuthService } from '../shared/services/auth.service';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule,
-    AuthService
+    AuthRoutingModule
   ]
 })
 export class AuthModule { }

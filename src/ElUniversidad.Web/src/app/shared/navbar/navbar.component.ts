@@ -1,4 +1,5 @@
 import { Component , OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 import { SidebarService } from '../sidebar/sidebar.service';
 
 
@@ -10,7 +11,7 @@ import { SidebarService } from '../sidebar/sidebar.service';
 
 export class NavbarComponent implements OnInit{
 
-    constructor(public sidebarservice: SidebarService) { }
+  constructor(public sidebarservice: SidebarService, public authService: AuthService) { }
         
     toggleSidebar() {
         this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());

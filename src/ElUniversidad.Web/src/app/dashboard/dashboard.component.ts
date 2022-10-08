@@ -10,7 +10,6 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    $.getScript('./assets/js/widgets.js');
   }
 
 }

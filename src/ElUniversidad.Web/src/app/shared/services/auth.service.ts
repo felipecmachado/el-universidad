@@ -39,7 +39,6 @@ export class AuthService {
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            alert("FOI")
             this.router.navigate(['dashboard']);
           }
         });

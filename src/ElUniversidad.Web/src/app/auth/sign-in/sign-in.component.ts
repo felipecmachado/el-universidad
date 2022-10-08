@@ -21,8 +21,10 @@ export class SignInComponent implements OnInit {
     this.router.navigate(['sign-up'], { relativeTo: this.route.parent });
   }
 
-
   ngOnInit(): void {
+    if (this.authService.isLoggedIn) {
+      this.router.navigate(['dashboard']);
+    }
   }
 
 }
