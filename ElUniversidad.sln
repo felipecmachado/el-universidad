@@ -1,0 +1,113 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElUniversidad.Domain", "src\ElUniversidad.Domain\ElUniversidad.Domain.csproj", "{F3324CD2-EA02-42A1-A559-323816B57000}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElUniversidad.BackgroundServices", "src\ElUniversidad.BackgroundServices\ElUniversidad.BackgroundServices.csproj", "{1832F814-4BEF-46FF-B0B4-E93B9796FDBA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{85804636-6EF8-4610-8C06-F55D9D470997}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{9C76F158-107E-4480-B4B1-8A37193D5AA5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElUniversidad.Application", "src\ElUniversidad.Application\ElUniversidad.Application.csproj", "{52A4016E-7103-4A72-BA18-DE4A1A0A07D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{DAF027E4-6EB9-4814-9AC0-FE5A3296700E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{64FBE8FE-118D-4BD0-A0EC-6717FFA68D0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A86E9ABF-B408-4DC0-93DF-D83CE90649D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElUniversidad.Infrastructure.Data", "src\ElUniversidad.Infrastructure.Data\ElUniversidad.Infrastructure.Data.csproj", "{5A30A239-37EB-43B0-B481-E6372F8EE47A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{45BA9F69-5CAB-486D-8FD4-3100FEA3F48A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6FBF2D52-6F41-49EC-B533-93FD31A605CB}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{0A8CBEDF-7FE9-445A-B3F7-6DF6C345D986}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build-and-test.yml = .github\workflows\build-and-test.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElUniversidad.Infrastructure", "src\ElUniversidad.Infrastructure\ElUniversidad.Infrastructure.csproj", "{AB95689C-AD71-4BAC-BBF2-A6F5AE95DF42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElUniversidad.API", "src\ElUniversidad.API\ElUniversidad.API.csproj", "{0B3E9E1E-793E-4477-B298-0FE4FD476CE3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElUniversidad.Tests", "tests\ElUniversidad.Tests\ElUniversidad.Tests.csproj", "{B3C02610-4419-4785-AD7C-3CBBFB97210C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9035485A-AD6E-47F0-A037-85CBE654DE5F}"
+	ProjectSection(SolutionItems) = preProject
+		docs\CasoEnsino_EngenhariaSoftware_2022.pdf = docs\CasoEnsino_EngenhariaSoftware_2022.pdf
+	EndProjectSection
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "ElUniversidad.Web", "src\ElUniversidad.Web\ElUniversidad.Web.esproj", "{4E3029AA-32BD-48B3-895F-053A120F9AF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3324CD2-EA02-42A1-A559-323816B57000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3324CD2-EA02-42A1-A559-323816B57000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3324CD2-EA02-42A1-A559-323816B57000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3324CD2-EA02-42A1-A559-323816B57000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1832F814-4BEF-46FF-B0B4-E93B9796FDBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1832F814-4BEF-46FF-B0B4-E93B9796FDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1832F814-4BEF-46FF-B0B4-E93B9796FDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1832F814-4BEF-46FF-B0B4-E93B9796FDBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52A4016E-7103-4A72-BA18-DE4A1A0A07D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A4016E-7103-4A72-BA18-DE4A1A0A07D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A4016E-7103-4A72-BA18-DE4A1A0A07D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A4016E-7103-4A72-BA18-DE4A1A0A07D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A30A239-37EB-43B0-B481-E6372F8EE47A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A30A239-37EB-43B0-B481-E6372F8EE47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A30A239-37EB-43B0-B481-E6372F8EE47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A30A239-37EB-43B0-B481-E6372F8EE47A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB95689C-AD71-4BAC-BBF2-A6F5AE95DF42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB95689C-AD71-4BAC-BBF2-A6F5AE95DF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB95689C-AD71-4BAC-BBF2-A6F5AE95DF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB95689C-AD71-4BAC-BBF2-A6F5AE95DF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B3E9E1E-793E-4477-B298-0FE4FD476CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B3E9E1E-793E-4477-B298-0FE4FD476CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B3E9E1E-793E-4477-B298-0FE4FD476CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B3E9E1E-793E-4477-B298-0FE4FD476CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3C02610-4419-4785-AD7C-3CBBFB97210C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C02610-4419-4785-AD7C-3CBBFB97210C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C02610-4419-4785-AD7C-3CBBFB97210C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C02610-4419-4785-AD7C-3CBBFB97210C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E3029AA-32BD-48B3-895F-053A120F9AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E3029AA-32BD-48B3-895F-053A120F9AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E3029AA-32BD-48B3-895F-053A120F9AF8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4E3029AA-32BD-48B3-895F-053A120F9AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E3029AA-32BD-48B3-895F-053A120F9AF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E3029AA-32BD-48B3-895F-053A120F9AF8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F3324CD2-EA02-42A1-A559-323816B57000} = {9C76F158-107E-4480-B4B1-8A37193D5AA5}
+		{1832F814-4BEF-46FF-B0B4-E93B9796FDBA} = {64FBE8FE-118D-4BD0-A0EC-6717FFA68D0B}
+		{85804636-6EF8-4610-8C06-F55D9D470997} = {64FBE8FE-118D-4BD0-A0EC-6717FFA68D0B}
+		{9C76F158-107E-4480-B4B1-8A37193D5AA5} = {64FBE8FE-118D-4BD0-A0EC-6717FFA68D0B}
+		{52A4016E-7103-4A72-BA18-DE4A1A0A07D7} = {DAF027E4-6EB9-4814-9AC0-FE5A3296700E}
+		{DAF027E4-6EB9-4814-9AC0-FE5A3296700E} = {64FBE8FE-118D-4BD0-A0EC-6717FFA68D0B}
+		{5A30A239-37EB-43B0-B481-E6372F8EE47A} = {85804636-6EF8-4610-8C06-F55D9D470997}
+		{45BA9F69-5CAB-486D-8FD4-3100FEA3F48A} = {6FBF2D52-6F41-49EC-B533-93FD31A605CB}
+		{0A8CBEDF-7FE9-445A-B3F7-6DF6C345D986} = {45BA9F69-5CAB-486D-8FD4-3100FEA3F48A}
+		{AB95689C-AD71-4BAC-BBF2-A6F5AE95DF42} = {85804636-6EF8-4610-8C06-F55D9D470997}
+		{0B3E9E1E-793E-4477-B298-0FE4FD476CE3} = {64FBE8FE-118D-4BD0-A0EC-6717FFA68D0B}
+		{B3C02610-4419-4785-AD7C-3CBBFB97210C} = {A86E9ABF-B408-4DC0-93DF-D83CE90649D0}
+		{9035485A-AD6E-47F0-A037-85CBE654DE5F} = {6FBF2D52-6F41-49EC-B533-93FD31A605CB}
+		{4E3029AA-32BD-48B3-895F-053A120F9AF8} = {64FBE8FE-118D-4BD0-A0EC-6717FFA68D0B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9748A860-FD11-4943-9BE2-A201E80D8922}
+	EndGlobalSection
+EndGlobal

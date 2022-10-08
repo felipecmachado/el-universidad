@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+	    <TargetFramework>net6.0</TargetFramework>
+	    <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\ElUniversidad.Domain\ElUniversidad.Domain.csproj" />
+	  <ProjectReference Include="..\ElUniversidad.Infrastructure.Data\ElUniversidad.Infrastructure.Data.csproj" />
+	  <ProjectReference Include="..\ElUniversidad.Infrastructure\ElUniversidad.Infrastructure.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Students\EventHandlers\" />
+	  <Folder Include="Programs\EventHandlers\" />
+	  <Folder Include="Services\Interfaces\" />
+	</ItemGroup>
+
+</Project>

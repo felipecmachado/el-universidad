@@ -1,0 +1,27 @@
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+  <div class="breadcrumb-title pe-3">Offers</div>
+</div>
+<!--end breadcrumb-->
+<hr />
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4">
+  <div *ngIf="offers.length == 0">
+    <span>There are no offers at the moment.</span>
+  </div>
+  <div class="col" *ngFor="let offer of offers">
+    <div class="card">
+      <img src="assets/images/gallery/doctor.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ offer.programStructure.title }}</h5>
+        <p class="card-text">
+          <span>Starting on {{ offer.startingOn | date:"dd/MM/yyyy" }}.</span>
+          <br />
+          <span>Admissions available until {{ offer.admissionAvailableUntil | date:"dd/MM/yy" }}.</span>
+          <br />
+          <span>Price per credit: {{ offer.pricePerCredit | currency }} ({{ offer.admissionsQuota }} spots).</span>
+        </p>
+        <a href="#" (click)="$event.preventDefault()" routerLink="/program-structures/{{offer.programStructure.id}}" class="btn btn-primary">Check the program structure</a>
+      </div>
+    </div>
+  </div>
+</div>
