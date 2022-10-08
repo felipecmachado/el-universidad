@@ -6,12 +6,12 @@ export const environment = {
   production: false,
   URL: "https://localhost:7227/api/",
   firebase: {
-    apiKey: "AIzaSyB55gNdXcFnv5QTsMTc9iPvuCBxFeg0Pm8",
-    authDomain: "unisinos-sw-engineering-web.firebaseapp.com",
+    apiKey: "",
+    authDomain: "",
     projectId: "unisinos-sw-engineering-web",
-    storageBucket: "unisinos-sw-engineering-web.appspot.com",
-    messagingSenderId: "207739785120",
-    appId: "1:207739785120:web:67b8bda2de6d37fdbedec5",
-    measurementId: "G-MTRX3T0S4Q"
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "1:",
+    measurementId: ""
   }
 };
