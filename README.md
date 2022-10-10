@@ -15,7 +15,7 @@ This is a project created with the **solely purpose of applying several topics**
 - [x] View Program Structures
 - [ ] Create and edit Students
 - [ ] Students can register to offers
-- [ ] Authenticate using Google Firebase
+- [x] Authenticate using Google Firebase
 
 #### OpenAPI Specification
 ![image](https://user-images.githubusercontent.com/2963750/194724605-4488409e-0a2e-4bcf-85fb-48e4ec01e93a.png)
